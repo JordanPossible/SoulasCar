@@ -28,6 +28,7 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
         this.new_user = {}
         this._authService.addUsers(user)
         .subscribe(res => {
+            this.router.navigate(['/vehicles'])
         },
         err => {
           console.log(err );
@@ -38,13 +39,10 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
         this.user = {}
         this._authService.login(user)
         .subscribe(res => {
-          this.router.navigate(['/vehicles'])
+            this.router.navigate(['/vehicles'])
         },
         err => {
           console.log(err );
         })
       }
-
-
-
     }
