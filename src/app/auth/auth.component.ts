@@ -1,4 +1,5 @@
 import { AuthService } from '../auth.service';
+import {Router} from "@angular/router";
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 
@@ -11,8 +12,13 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
       new_user = {};
       user = {};
 
-      constructor( private _authService: AuthService) {
-
+      constructor(private _authService: AuthService,private router: Router) {
+        this._authService.me()
+        .subscribe(res => {
+          if(!res.error){
+            this.router.navigate(['/vehicles'])
+          }
+        });
       }
 
       ngOnInit() {
@@ -32,6 +38,7 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
         this.user = {}
         this._authService.login(user)
         .subscribe(res => {
+          this.router.navigate(['/vehicles'])
         },
         err => {
           console.log(err );

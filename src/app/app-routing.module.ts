@@ -24,7 +24,7 @@ const routes: Routes = [
     component: TrajetTypesComponent
   },
   {
-    path: 'vehicle',
+    path: 'vehicles',
     component: VehiclesComponent
   }
 ];

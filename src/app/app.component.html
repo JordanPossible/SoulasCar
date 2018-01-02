@@ -2,8 +2,8 @@
 
 <ul>
   <li><a routerLink="trajets">Trajets</a></li>
-  <li><a routerLink="vehicle">Vehicule</a></li>
-  <li><a routerLink="trajetTypes">Trajets Type</a></li>
+  <li *ngIf="!current_users.error"><a routerLink="vehicles">Vehicule</a></li>
+  <li *ngIf="current_users.admin"><a routerLink="trajetTypes">Trajets Type</a></li>
   <li *ngIf="current_users.error"><a routerLink="users">Inscription / Connexion</a></li>
   <li *ngIf="!current_users.error">
     <button (click)="logout()">Deconnexion</button>

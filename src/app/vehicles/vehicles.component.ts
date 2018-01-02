@@ -1,4 +1,6 @@
 import { VehicleService } from '../vehicle.service';
+import { AuthService } from '../auth.service';
+import {Router} from "@angular/router";
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 
@@ -35,8 +37,13 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
       new_vehicle = {};
       msg: string;
 
-      constructor(private _vehicleService: VehicleService) {
-
+      constructor(private _vehicleService: VehicleService, private _authService: AuthService,private router: Router) {
+        this._authService.me()
+        .subscribe(res => {
+          if(res.error){
+            this.router.navigate(['/users'])
+          }
+        });
       }
 
       ngOnInit() {

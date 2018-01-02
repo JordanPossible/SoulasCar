@@ -1,4 +1,6 @@
 import { TrajetTypeService } from '../trajet-type.service';
+import { AuthService } from '../auth.service';
+import {Router} from "@angular/router";
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 
@@ -35,8 +37,13 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
       new_trajetType = {};
       msg: string;
 
-      constructor(private _trajetTypeService: TrajetTypeService) {
-
+      constructor(private _trajetTypeService: TrajetTypeService, private _authService: AuthService,private router: Router) {
+        this._authService.me()
+        .subscribe(res => {
+          if(res.error){
+            this.router.navigate(['/users'])
+          }
+        });
       }
 
       ngOnInit() {
