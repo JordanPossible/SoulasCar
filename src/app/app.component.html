@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<ul>
+  <li><a routerLink="trajets">Trajets</a></li>
+  <li><a routerLink="vehicle">Vehicule</a></li>
+  <li><a routerLink="trajetTypes">Trajets Type</a></li>
+  <li><a routerLink="users">Inscription / Connexion</a></li>
+  <li>
+    <button (click)="logout()">Deconnexion</button>
+  </li>
+  <li >
+    <button (click)="me()">reloadme</button>
+  </li>
+  <li>
+    {{current_users.username}}
+    {{current_users.message}}
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

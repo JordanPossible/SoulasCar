@@ -1,0 +1,29 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Trajet</p>
+  </div>
+  <div class="col">
+    <p>Liste des trajets</p>
+  </div>
+</div>
+<div class="container color-light" [@trajets]="trajets.length">
+  <div class="col">
+
+    <form>
+      <input type="text" class="txt" name="address_start" placeholder="address_start" [(ngModel)]="new_trajet.address_start">
+      <input type="text" class="txt" name="address_end" placeholder="address_end" [(ngModel)]="new_trajet.address_end">
+      <input type="date" class="txt" name="date_start" placeholder="date_start" [(ngModel)]="new_trajet.date_start">
+      <input type="date" class="txt" name="date_end" placeholder="date_end" [(ngModel)]="new_trajet.date_end">
+      <input type="number" class="txt" name="price_by_km" placeholder="price_by_km" [(ngModel)]="new_trajet.price_by_km">
+      <input type="number" class="txt" name="nbr_place" placeholder="nbr_place" [(ngModel)]="new_trajet.nbr_place">
+
+      <input type="submit" class="btn" value="Valider" (click)="addTrajet(new_trajet)">
+    </form>
+  </div>
+  <div class="col">
+    <div class="life-container container" *ngFor="let t of trajets; let i = index" >
+        <div class="col" style="-webkit-align-content: center;align-content: left;">{{t.address_start}} - {{t.address_end}}</div>
+        <div class="col" style="-webkit-align-content: center;align-content: right;">le {{t.date_start}} {{t.nbr_place}}places</div>
+    </div>
+  </div>
+</div>

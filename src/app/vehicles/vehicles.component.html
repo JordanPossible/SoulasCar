@@ -1,0 +1,30 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Trajets Type</p>
+
+  </div>
+  <div class="col">
+    <p>Liste des trajet types</p>
+
+  </div>
+</div>
+<div class="container color-light" [@vehicles]="vehicles.length">
+  <div class="col">
+
+    <form>
+      <input type="text" class="txt" name="type" placeholder="type" [(ngModel)]="new_vehicle.type">
+      <input type="text" class="txt" name="doors" placeholder="doors" [(ngModel)]="new_vehicle.doors">
+      <input type="number" class="txt" name="places" placeholder="places" [(ngModel)]="new_vehicle.places">
+
+      <input type="submit" class="btn" value="Valider" (click)="addVehicle(new_vehicle)">
+    </form>
+  </div>
+  <div class="col">
+    <div class="life-container container" *ngFor="let t of vehicles; let i = index" >
+
+      <div class="col" style="-webkit-align-content: center;align-content: left;">{{t.type}} - {{t.doors}}</div>
+      <div class="col" style="-webkit-align-content: center;align-content: right;"><i style="text-align: right">{{t.places}} Places </i></div>
+
+    </div>
+  </div>
+</div>

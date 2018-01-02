@@ -1,0 +1,37 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Inscription</p>
+  </div>
+  <div class="col">
+    <p>Connexion</p>
+  </div>
+</div>
+<div class="container color-light">
+  <div class="col">
+
+    <form>
+      <input type="text" class="txt" name="username" placeholder="username" [(ngModel)]="new_user.username">
+      <input type="password" class="txt" name="password" placeholder="password" [(ngModel)]="new_user.password">
+      <h3>Infos</h3>
+      <input type="text" class="txt" name="name" placeholder="name" [(ngModel)]="new_user.name">
+      <input type="text" class="txt" name="lastname" placeholder="lastname" [(ngModel)]="new_user.lastname">
+      <input type="number" class="txt" name="age" placeholder="age" [(ngModel)]="new_user.age">
+      <input type="text" class="txt" name="email" placeholder="email" [(ngModel)]="new_user.email">
+      <input type="text" class="txt" name="phone_number" placeholder="phone_number" [(ngModel)]="new_user.phone_number">
+      <input type="text" class="txt" name="address" placeholder="address" [(ngModel)]="new_user.address">
+
+
+
+
+
+      <input type="submit" class="btn" value="Valider" (click)="addUser(new_user)">
+    </form>
+  </div>
+  <div class="col">
+    <form>
+      <input type="text" class="txt" name="username" placeholder="username" [(ngModel)]="user.username">
+      <input type="password" class="txt" name="password" placeholder="password" [(ngModel)]="user.password">
+    </form>
+    <input type="submit" class="btn" value="Valider" (click)="login(user)">
+  </div>
+</div>

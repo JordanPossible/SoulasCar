@@ -1,0 +1,30 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Trajets Type</p>
+
+  </div>
+  <div class="col">
+    <p>Liste des trajet types</p>
+
+  </div>
+</div>
+<div class="container color-light" [@trajetTypes]="trajetTypes.length">
+  <div class="col">
+
+    <form>
+      <input type="text" class="txt" name="city_start" placeholder="city_start" [(ngModel)]="new_trajetType.city_start">
+      <input type="text" class="txt" name="city_end" placeholder="city_end" [(ngModel)]="new_trajetType.city_end">
+      <input type="number" class="txt" name="distance" placeholder="distance" [(ngModel)]="new_trajetType.distance">
+      <input type="number" class="txt" name="time" placeholder="time" [(ngModel)]="new_trajetType.time">
+
+      <input type="submit" class="btn" value="Valider" (click)="addTrajetType(new_trajetType)">
+    </form>
+  </div>
+  <div class="col">
+    <div class="life-container container" *ngFor="let t of trajetTypes; let i = index" >
+      <div class="col" style="-webkit-align-content: center;align-content: left;">{{t.city_start}} - {{t.city_end}}</div>
+      <div class="col" style="-webkit-align-content: center;align-content: right;"><i style="text-align: right">{{t.distance}}km {{t.time}}</i></div>
+
+    </div>
+  </div>
+</div>
