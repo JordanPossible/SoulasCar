@@ -4,8 +4,8 @@
   <li><a routerLink="trajets">Trajets</a></li>
   <li><a routerLink="vehicle">Vehicule</a></li>
   <li><a routerLink="trajetTypes">Trajets Type</a></li>
-  <li><a routerLink="users">Inscription / Connexion</a></li>
-  <li>
+  <li *ngIf="current_users.error"><a routerLink="users">Inscription / Connexion</a></li>
+  <li *ngIf="!current_users.error">
     <button (click)="logout()">Deconnexion</button>
   </li>
   <li >
@@ -14,6 +14,7 @@
   <li>
     {{current_users.username}}
     {{current_users.message}}
+    {{current_users.admin}}
   </li>
 </ul>
 
