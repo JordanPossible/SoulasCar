@@ -11,6 +11,7 @@ var trajetSchema = new Schema({
   price_by_km: Number,
   nbr_place: Number,
 
+  trajet_id: Schema.Types.ObjectId,
 
   created_at: Date,
   updated_at: Date

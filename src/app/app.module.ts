@@ -15,11 +15,11 @@ import { AuthComponent } from './auth/auth.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 
 //services
-import { TrajetService } from './trajet.service';
-import { TrajetTypeService } from './trajet-type.service';
-import { UserService } from './user.service';
-import { AuthService } from './auth.service';
-import { VehicleService } from './vehicle.service';
+import { TrajetService } from './services/trajet.service';
+import { TrajetTypeService } from './services/trajet-type.service';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { VehicleService } from './services/vehicle.service';
 
 
 @NgModule({

@@ -1,5 +1,5 @@
-import { TrajetTypeService } from '../trajet-type.service';
-import { AuthService } from '../auth.service';
+import { TrajetTypeService } from '../services/trajet-type.service';
+import { AuthService } from '../services/auth.service';
 import {Router} from "@angular/router";
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';

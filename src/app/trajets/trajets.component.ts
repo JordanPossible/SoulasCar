@@ -1,4 +1,4 @@
-import { TrajetService } from '../trajet.service';
+import { TrajetService } from '../services/trajet.service';
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 
