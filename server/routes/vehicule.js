@@ -1,6 +1,6 @@
 const express = require('express');
-const router = express.Router();
 const mongoose = require('mongoose');
+const router = express.Router();
 
 var Users = require('../models/users');
 var Vehicles = require('../models/vehicles');
@@ -59,7 +59,6 @@ router.route('/vehicles')
 
         console.log('Vehicles created!');
       });
-
     });
 });
 

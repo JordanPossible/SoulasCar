@@ -2,13 +2,15 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
+var auth = require('../middleware/auth_middleware.js');
+var passport = require("passport");
+
 var Users = require('../models/users');
 var Trajets = require('../models/trajets');
 var TrajetTypes = require('../models/trajetTypes');
 var Vehicles = require('../models/vehicles');
 
-var auth = require('../middleware/auth_middleware.js');
-var passport = require("passport");
+
 
 // Connect
 const connection = (closure) => {

@@ -1,34 +1,32 @@
 const express = require('express');
-const router = express.Router();
 const mongoose = require('mongoose');
+const router = express.Router();
 
 var Users = require('../models/users');
-
 var auth = require('../middleware/auth_middleware.js');
 var passport = require("passport");
 
 // Connect
 const connection = (closure) => {
-    return mongoose.connect('mongodb://localhost:27017/soulas_car', (err, db) => {
-        if (err) return console.log(err);
+  return mongoose.connect('mongodb://localhost:27017/soulas_car', (err, db) => {
+    if (err) return console.log(err);
 
-        closure(db);
-    });
+    closure(db);
+  });
 };
-
 
 // Error handling
 const sendError = (err, res) => {
-    response.status = 501;
-    response.message = typeof err == 'object' ? err.message : err;
-    res.status(501).json(response);
+  response.status = 501;
+  response.message = typeof err == 'object' ? err.message : err;
+  res.status(501).json(response);
 };
 
 // Response handling
 let response = {
-    status: 200,
-    data: [],
-    message: null
+  status: 200,
+  data: [],
+  message: null
 };
 
 
@@ -49,7 +47,6 @@ router.route('/sign_up')
     });
 
   })(req, res, next)
-
 });
 
 router.route('/sign_in')
@@ -86,16 +83,14 @@ router.route('/logout')
   });
 });
 
-
-
 router.route('/me')
 .get( auth.isLoggedIn, function(req, res) {
   Users.find({
-      "_id": req.user._id
+    "_id": req.user._id
   }).then(function (user) {
-      res.send(user)
+    res.send(user)
   }).catch(function (err) {
-      res.send(err);
+    res.send(err);
   });
 });
 

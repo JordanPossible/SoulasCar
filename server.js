@@ -5,21 +5,21 @@ const http = require('http');
 const app = express();
 var Users = require('./server/models/users');
 
-// API file for interacting with MongoDB
-const api = require('./server/routes/api');
+const api = require('./server/routes/api');  // Notre API qui échange avec Mongodb
 
+//On utilise express-session et passport pour gerer l'authentification
+var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash'); //special aera session for storing messages
 
-
-var session      = require('express-session');
-
-var passport   = require('passport');
-var flash    = require('connect-flash');
-var jwt         = require('jwt-simple');
-
-app.use(session({ secret: 'keyboard cat',cookie: { httpOnly: false, maxAge: 900000},rolling: true, resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'keyboard cat',
+                  cookie: { httpOnly: false, maxAge: 900000},
+                  rolling: true,
+                  resave: true,
+                  saveUninitialized:true
+}));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
 app.use(flash());
 
 // Parsers
